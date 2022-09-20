@@ -1,0 +1,56 @@
+<div class="font1" style="background-image: url(assets/background.jpg) ; width: 100wh; height: 100vh;">
+    <mat-tab-group>
+        <mat-tab class="font1" label="Currency Converter">
+            <!-- <h1>Currency Converter</h1> -->
+            <mat-grid-list cols="3" rowHeight="20vh">
+                <mat-grid-tile colspan="1">
+                    <p class="font1">Amount &nbsp;</p>
+                    <input type="text" (change)="updateAmount($event)" placeholder={{amount}}>
+                </mat-grid-tile>
+
+                <mat-grid-tile colspan="1">
+                    <p class="font1">From &nbsp;</p>
+                    <select class="selectWidthHeight" #it1 (change)="selectFrom(it1.value)">
+                        <option *ngFor="let item of hashMapRate | keyvalue" [value]="item.key"
+                            [selected]="item.key == 'EUR'">{{item.key}}</option>
+                    </select>
+                </mat-grid-tile>
+
+
+                <mat-grid-tile colspan="1">
+                    <p class="font1">To &nbsp;</p>
+                    <select  class="selectWidthHeight" #it2 (change)="selectTo(it2.value)">
+                        <option *ngFor="let item of hashMapRate | keyvalue" [value]="item.key"
+                            [selected]="item.key == 'ILS'">{{item.key}}</option>
+                    </select>
+                </mat-grid-tile>
+
+                <mat-grid-tile colspan="1">
+                </mat-grid-tile>
+                <mat-grid-tile colspan="1">
+                    <p class="font1">{{strTotal}}</p>
+                </mat-grid-tile>
+                <mat-grid-tile colspan="1">
+                </mat-grid-tile>
+
+            </mat-grid-list>
+
+        </mat-tab>
+
+        <mat-tab label="History">
+            <div style="padding-top:10vh;padding-left: 5vw; width: 80vw;height: 70vh;">
+                <tr *ngFor="let row of historyTable" style="padding: 10px;">
+                    <div class="wrapper">
+                    <p>{{row}}</p>
+                </div>
+                </tr>
+
+            </div>
+        </mat-tab>
+
+    </mat-tab-group>
+
+
+    <br><br>
+    <!-- <input type="convert" value="Submit"> -->
+</div>

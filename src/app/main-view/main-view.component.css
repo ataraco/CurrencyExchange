@@ -1,0 +1,11 @@
+
+.font1{
+    color:white !important;
+    font-weight:bold ;
+    font-size: 20px;
+    
+}
+.selectWidthHeight{
+    width: 10vw;
+    height: 5vh;
+}
